@@ -1,13 +1,19 @@
 def selection(arr):
     n = len(arr)
-    for i in range(n-1):
-        min = i
-        for j in range(i+1,n):
-            if arr[min]>arr[j]:
-                min = j
-        arr[min],arr[i] = arr[i],arr[min]
-        print(f"Passs {i} {arr}")
+    for i in range(n - 1):
+        min_index = i
+        for j in range(i + 1, n):
+            if arr[min_index] > arr[j]:
+                min_index = j
+        arr[i], arr[min_index] = arr[min_index], arr[i]
+        print(f"Pass {i + 1}: {arr}")
+    print("Sorted array:", arr)
 
-    print(arr)
+arr = []
+n = int(input("Enter number of elements: "))
+for i in range(n):
+    num = int(input(f"Enter element {i+1}: "))
+    arr.append(num)
 
-selection([5,3,4,2,1])            
+print("Original array:", arr)
+selection(arr)
